@@ -13,9 +13,10 @@ const Form = ({list, setList}) => {
         setFormData({...formData, [event.target.name]: event.target.value});
     }
 
-    const handleSubmit = () => {
+    const handleSubmit = event => {
+        event.preventDefault();
         let newPerson = {name: formData.name, email: formData.email, role: formData.role};
-        setList(...list, newPerson);
+        setList([...list, newPerson]);
         setFormData({...defaultData});
     };
 
